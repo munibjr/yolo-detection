@@ -1,6 +1,7 @@
 from ultralytics import YOLO
 import argparse
 
+
 def train_yolo(data_yaml, epochs=100):
     model = YOLO('yolov11n.pt')  # nano model
     results = model.train(
@@ -15,10 +16,11 @@ def train_yolo(data_yaml, epochs=100):
     )
     return results
 
+
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--data", default="data.yaml")
     parser.add_argument("--epochs", type=int, default=100)
     args = parser.parse_args()
-    
+
     train_yolo(args.data, args.epochs)
